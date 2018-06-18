@@ -1,0 +1,29 @@
+<div class="main-content login">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 center-div">
+                    <div class="card card-stats">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+	                        <div class="column plr20">
+	                            <div class="col-md-12">
+	                                <div class="form-group form-black label-floating is-empty">
+	                                    <label>Username</label>
+	                                    <input type="text" formControlName="userName" class="form-control" >
+	                                </div>
+	                            </div>
+	                            <div class="col-md-12">
+	                                <div class="form-group form-black label-floating is-empty">
+	                                    <label>Password</label>
+	                                    <input type="password" formControlName="password" class="form-control" >
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="card-footer">
+	                            <button type="submit" class="btn btn-danger pull-right">Login</button>
+	                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

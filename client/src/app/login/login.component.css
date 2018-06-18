@@ -1,0 +1,14 @@
+.login .card form [class*="col-"]:first-child{
+	padding-left : 6px;
+}
+.plr20{
+	padding: 0 20px; 
+}
+.center-div{
+  position: absolute;
+  margin: auto;
+  top: 25%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

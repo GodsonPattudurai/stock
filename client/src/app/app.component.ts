@@ -16,6 +16,7 @@ declare const $: any;
 export class AppComponent implements OnInit {
     private _router: Subscription;
     private lastPoppedUrl: string;
+    private isLogin: string;
     private yScrollStack: number[] = [];
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
@@ -26,12 +27,16 @@ export class AppComponent implements OnInit {
         $.material.init();
         const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
         const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
-
+        
+        this.isLogin = localStorage.getItem("isLogin");
+      
         this.location.subscribe((ev:PopStateEvent) => {
             this.lastPoppedUrl = ev.url;
         });
          this.router.events.subscribe((event:any) => {
-            this.navbar.sidebarClose();
+            if(this.isLogin == '1'){
+              this.navbar.sidebarClose();
+            }
             if (event instanceof NavigationStart) {
                if (event.url != this.lastPoppedUrl)
                    this.yScrollStack.push(window.scrollY);
@@ -42,10 +47,6 @@ export class AppComponent implements OnInit {
                } else
                    window.scrollTo(0, 0);
            }
-        });
-        this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-             elemMainPanel.scrollTop = 0;
-             elemSidebar.scrollTop = 0;
         });
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
             let ps = new PerfectScrollbar(elemMainPanel);
