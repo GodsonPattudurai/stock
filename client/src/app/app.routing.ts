@@ -1,3 +1,4 @@
+import { BaselayoutComponent } from './baselayout/baselayout.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -8,7 +9,9 @@ import { IconsComponent } from './icons/icons.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
+    { path: 'app', component: BaselayoutComponent, children: [
+      { path: 'dashboard', component: DashboardComponent},
+    ]},
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];

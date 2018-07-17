@@ -11,24 +11,26 @@ import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IconsComponent } from './icons/icons.component';
-import { LoginComponent } from './login/login.component';
+import { LoginModule } from './login/login.module';
+import { BaselayoutComponent } from './baselayout/baselayout.component';
+import { BaselayoutModule } from './baselayout/baselayout.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    IconsComponent,
-    LoginComponent,
-
+    IconsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ComponentsModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule,
+    BaselayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
