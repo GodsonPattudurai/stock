@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { BaselayoutComponent } from './baselayout/baselayout.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
@@ -9,7 +10,7 @@ import { IconsComponent } from './icons/icons.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-    { path: 'app', component: BaselayoutComponent, children: [
+    { path: 'app', canActivate: [AuthGuard], component: BaselayoutComponent, children: [
       { path: 'dashboard', component: DashboardComponent},
     ]},
     { path: 'login', component: LoginComponent },

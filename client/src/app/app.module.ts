@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IconsComponent } from './icons/icons.component';
@@ -32,7 +34,7 @@ import { BaselayoutModule } from './baselayout/baselayout.module';
     LoginModule,
     BaselayoutModule
   ],
-  providers: [],
+  providers: [AuthGuard,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

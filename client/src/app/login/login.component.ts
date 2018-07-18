@@ -1,3 +1,4 @@
+import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private authService : AuthService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -21,8 +22,8 @@ export class LoginComponent implements OnInit {
 
    onSubmit() {
      if (this.loginForm.value.userName !== '' && this.loginForm.value.password !== '' ) {
-       localStorage.setItem('isLogin', '1');
-       this.router.navigate(['/']);
+       this.authService.login();
+       this.router.navigate(['/app/dashboard']);
     }
    }
 }
