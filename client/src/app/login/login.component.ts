@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
       userName: ['', Validators.required],
       password: ['', Validators.required]
     });
+    if(localStorage.getItem("isLogin") == '1'){
+      this.router.navigate(['/app/dashboard']);
+    }
   }
 
    onSubmit() {

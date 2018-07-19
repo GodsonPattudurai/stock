@@ -1,12 +1,12 @@
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
-//import 'rxjs/add/operator/filter';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Subscription } from 'rxjs';
 
 declare const $: any;
+
 @Component({
   selector: 'app-baselayout',
   templateUrl: './baselayout.component.html',
@@ -16,7 +16,6 @@ export class BaselayoutComponent implements OnInit {
 
     private _router: Subscription;
     private lastPoppedUrl: string;
-    private isLogin: string;
     private yScrollStack: number[] = [];
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
@@ -27,23 +26,22 @@ export class BaselayoutComponent implements OnInit {
         $.material.init();
         const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
         const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
-        
-        this.isLogin = localStorage.getItem("isLogin");
-      
-        this.location.subscribe((ev:PopStateEvent) => {
+        this.location.subscribe((ev: PopStateEvent) => {
             this.lastPoppedUrl = ev.url;
         });
-         this.router.events.subscribe((event:any) => {
-           
+         this.router.events.subscribe((event: any) => {
+
             if (event instanceof NavigationStart) {
-               if (event.url != this.lastPoppedUrl)
+               if (event.url !== this.lastPoppedUrl) {
                    this.yScrollStack.push(window.scrollY);
+               }
            } else if (event instanceof NavigationEnd) {
-               if (event.url == this.lastPoppedUrl) {
+               if (event.url === this.lastPoppedUrl) {
                    this.lastPoppedUrl = undefined;
                    window.scrollTo(0, this.yScrollStack.pop());
-               } else
+               } else {
                    window.scrollTo(0, 0);
+               }
            }
         });
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
@@ -55,12 +53,11 @@ export class BaselayoutComponent implements OnInit {
         this.runOnRouteChange();
     }
     isMaps(path){
-        var titlee = this.location.prepareExternalUrl(this.location.path());
+        let titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice( 1 );
-        if(path == titlee){
+        if(path === titlee) {
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
