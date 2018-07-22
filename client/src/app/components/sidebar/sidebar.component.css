@@ -2,3 +2,22 @@
 	width: 200px;
     height: 50px;	
 }
+.sidebar-wrapper{
+	background-color: #2d323e !important;
+    color: #ffffff !important;
+}
+.nav li.active a{
+	background-color: #03a9f4 !important;
+	box-shadow: none !important;
+}
+.nav li a p{
+	color: rgba(255,255,255,.87) !important;
+}
+.mat-indigo-700-bg{
+	background-color: #303f9f !important;
+    color: #fff !important;
+}
+.sidebar-wrapper .nav li > a{
+	margin: 10px 0px !important;
+    border-radius: 0px !important;
+}

@@ -23,14 +23,12 @@ export class BaselayoutComponent implements OnInit {
     constructor( public location: Location, private router: Router) {}
 
     ngOnInit() {
-        $.material.init();
         const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
         const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
         this.location.subscribe((ev: PopStateEvent) => {
             this.lastPoppedUrl = ev.url;
         });
-         this.router.events.subscribe((event: any) => {
-
+        this.router.events.subscribe((event: any) => {
             if (event instanceof NavigationStart) {
                if (event.url !== this.lastPoppedUrl) {
                    this.yScrollStack.push(window.scrollY);
@@ -49,25 +47,6 @@ export class BaselayoutComponent implements OnInit {
             ps = new PerfectScrollbar(elemSidebar);
         }
     }
-    ngAfterViewInit() {
-        this.runOnRouteChange();
-    }
-    isMaps(path){
-        let titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice( 1 );
-        if(path === titlee) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-    runOnRouteChange(): void {
-      if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-        const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
-        const ps = new PerfectScrollbar(elemMainPanel);
-        ps.update();
-      }
-    }
     isMac(): boolean {
         let bool = false;
         if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
@@ -75,5 +54,4 @@ export class BaselayoutComponent implements OnInit {
         }
         return bool;
     }
-
 }

@@ -6,12 +6,13 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IconsComponent } from './icons/icons.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     { path: 'app', canActivate: [AuthGuard], component: BaselayoutComponent, children: [
       { path: 'dashboard', component: DashboardComponent},
+      { path: 'invoices', component: InvoiceComponent},
     ]},
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' }

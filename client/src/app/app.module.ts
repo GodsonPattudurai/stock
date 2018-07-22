@@ -12,17 +12,17 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IconsComponent } from './icons/icons.component';
 import { LoginModule } from './login/login.module';
 import { BaselayoutComponent } from './baselayout/baselayout.component';
 import { BaselayoutModule } from './baselayout/baselayout.module';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    IconsComponent
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,

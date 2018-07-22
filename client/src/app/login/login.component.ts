@@ -2,6 +2,7 @@ import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+declare const $: any;
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private authService : AuthService) { }
 
   ngOnInit() {
+    $.material.init();
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
