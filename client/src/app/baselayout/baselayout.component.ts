@@ -23,6 +23,7 @@ export class BaselayoutComponent implements OnInit {
     constructor( public location: Location, private router: Router) {}
 
     ngOnInit() {
+    		$.material.init();
         const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
         const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
         this.location.subscribe((ev: PopStateEvent) => {

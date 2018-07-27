@@ -7,15 +7,14 @@
     color: #ffffff !important;
 }
 .nav li.active a{
-	background-color: #03a9f4 !important;
+	background-color: #43a047 !important;
 	box-shadow: none !important;
 }
 .nav li a p{
 	color: rgba(255,255,255,.87) !important;
 }
-.mat-indigo-700-bg{
-	background-color: #303f9f !important;
-    color: #fff !important;
+.bgWhite{
+	background-color: #fff !important;
 }
 .sidebar-wrapper .nav li > a{
 	margin: 10px 0px !important;
