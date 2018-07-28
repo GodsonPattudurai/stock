@@ -30,6 +30,7 @@ export class BaselayoutComponent implements OnInit {
             this.lastPoppedUrl = ev.url;
         });
         this.router.events.subscribe((event: any) => {
+            this.navbar.sidebarClose();
             if (event instanceof NavigationStart) {
                if (event.url !== this.lastPoppedUrl) {
                    this.yScrollStack.push(window.scrollY);
