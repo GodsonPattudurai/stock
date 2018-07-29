@@ -16,15 +16,14 @@ import { LoginModule } from './login/login.module';
 import { BaselayoutComponent } from './baselayout/baselayout.component';
 import { BaselayoutModule } from './baselayout/baselayout.module';
 import { InvoiceComponent } from './invoice/invoice.component';
-import { ContactsComponent } from './contacts/contacts.component';
+import { ContactModule } from './contact/contact.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    InvoiceComponent,
-    ContactsComponent
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +33,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     RouterModule,
     AppRoutingModule,
     LoginModule,
-    BaselayoutModule
+    BaselayoutModule,
+    ContactModule
   ],
   providers: [AuthGuard,AuthService],
   bootstrap: [AppComponent]

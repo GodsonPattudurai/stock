@@ -1,0 +1,39 @@
+<div class="row" *ngIf="isCreate">
+    <div class="col-md-12">
+        <app-contact-create (onCreateClose)="closeCreate($event)"></app-contact-create>
+    </div>
+</div>
+<div class="row" *ngIf="!isCreate">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn-danger btn-fab" (click)="openCreate()">
+		  <i class="material-icons">add</i>
+		</button>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="green">
+                <h4 class="title">Contact List</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead class="text-danger">
+                        <tr>
+                            <th>Fist Name</th>
+                            <th>Last Name</th>
+                            <th>Company</th>
+                            <th>Customer / Vendor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dakota Rice</td>
+                            <td>Niger</td>
+                            <td>Oud-Turnhout</td>
+                            <td>Customer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

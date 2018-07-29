@@ -31,6 +31,7 @@ export class BaselayoutComponent implements OnInit {
         });
         this.router.events.subscribe((event: any) => {
             this.navbar.sidebarClose();
+            localStorage.setItem("loginTime", new Date().toString());
             if (event instanceof NavigationStart) {
                if (event.url !== this.lastPoppedUrl) {
                    this.yScrollStack.push(window.scrollY);
