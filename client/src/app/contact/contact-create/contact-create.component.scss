@@ -1,6 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
 .radio input[type=radio]:checked ~.circle{
-	border-color: #43a047 !important;
+	border-color: #26c6da !important;
 }
 .radio input[type=radio]:checked ~.check{
-	background-color: #43a047 !important;
+	background-color: #26c6da !important;
 }

@@ -1,3 +1,45 @@
-<p>
-  item-list works!
-</p>
+<div class="row" *ngIf="isCreate">
+    <div class="col-md-12">
+        <app-item-create (onCreateClose)="closeCreate($event)"></app-item-create>
+    </div>
+</div>
+<div class="row" *ngIf="!isCreate">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn-danger btn-fab" (click)="openCreate()">
+		  <i class="material-icons">add</i>
+		</button>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="orange">
+                <h4 class="title">Item List</h4>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead class="text-danger">
+                        <tr>
+                            <th>Item</th>
+                            <th>Item Group</th>
+                            <th>SKU</th>
+                            <th>Selling Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>iPhone</td>
+                            <td>Phone</td>
+                            <td>STK12345</td>
+                            <td>40000</td>
+                        </tr>
+                        <tr>
+                            <td>Moto</td>
+                            <td>Phone</td>
+                            <td>STK12346</td>
+                            <td>10000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
